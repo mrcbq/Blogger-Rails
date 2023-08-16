@@ -1,0 +1,2 @@
+  [1m[35m (117.7ms)[0m  [1m[35mCREATE DATABASE "Blogger_Rails_development" ENCODING = 'unicode'[0m
+  [1m[35m (64.4ms)[0m  [1m[35mCREATE DATABASE "Blogger_Rails_test" ENCODING = 'unicode'[0m
