@@ -205,3 +205,5 @@ Migrating to CreateComments (20230817000454)
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
   [1m[36mPost Update (1.0ms)[0m  [1m[33mUPDATE "posts" SET "text" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["text", "This is my first post, I am Lilly."], ["updated_at", "2023-08-17 19:41:49.271755"], ["id", 5]]
   [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
