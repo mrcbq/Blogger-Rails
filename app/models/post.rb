@@ -1,4 +1,10 @@
 class Post < ApplicationRecord
+  attribute :author_id, :integer
+  attribute :title, :string
+  attribute :text, :text
+  attribute :comments_count, :integer
+  attribute :likes_count, :integer
+
   belongs_to :author, class_name: 'User', counter_cache: true
   has_many :comments
   has_many :likes
