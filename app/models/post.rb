@@ -9,8 +9,19 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  before_validation :set_default_likes_n_comment_counts
+
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :comments_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   after_create :update_author_posts_count
   after_destroy :update_author_posts_count
+
+  def set_default_likes_n_comment_counts
+    self.comments_count ||= 0
+    self.likes_count ||= 0
+  end
 
   def update_author_posts_count
     author.update(posts_count: author.posts.count)
