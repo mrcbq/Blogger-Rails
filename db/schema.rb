@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_18_003152) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_18_040327) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_003152) do
     t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "comments_counter", default: 0, null: false
+    t.integer "likes_counter", default: 0, null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
