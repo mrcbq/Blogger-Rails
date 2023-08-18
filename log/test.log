@@ -140,3 +140,152 @@
   [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "likes_count" = COALESCE("likes_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["likes_count", 1], ["id", 9]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.804514"], ["updated_at", "2023-08-18 15:46:39.804514"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 10], ["created_at", "2023-08-18 15:46:39.805919"], ["updated_at", "2023-08-18 15:46:39.805919"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.3ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 10]]
+  [1m[36mPost Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 10]]
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Description test"], ["post_id", 10], ["author_id", 10], ["created_at", "2023-08-18 15:46:39.810896"], ["updated_at", "2023-08-18 15:46:39.810896"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 10]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.827549"], ["updated_at", "2023-08-18 15:46:39.827549"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 11], ["created_at", "2023-08-18 15:46:39.828535"], ["updated_at", "2023-08-18 15:46:39.828535"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 11]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 11]]
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Description test"], ["post_id", 11], ["author_id", 11], ["created_at", "2023-08-18 15:46:39.830830"], ["updated_at", "2023-08-18 15:46:39.830830"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.833630"], ["updated_at", "2023-08-18 15:46:39.833630"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 12], ["created_at", "2023-08-18 15:46:39.834587"], ["updated_at", "2023-08-18 15:46:39.834587"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 12]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 12]]
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Description test"], ["post_id", 12], ["author_id", 12], ["created_at", "2023-08-18 15:46:39.836824"], ["updated_at", "2023-08-18 15:46:39.836824"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 12]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Description test2"], ["post_id", 12], ["author_id", 12], ["created_at", "2023-08-18 15:46:39.838455"], ["updated_at", "2023-08-18 15:46:39.838455"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 12]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.845883"], ["updated_at", "2023-08-18 15:46:39.845883"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 13], ["created_at", "2023-08-18 15:46:39.846922"], ["updated_at", "2023-08-18 15:46:39.846922"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 13]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 13]]
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("author_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 13], ["post_id", 13], ["created_at", "2023-08-18 15:46:39.849270"], ["updated_at", "2023-08-18 15:46:39.849270"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "likes_count" = COALESCE("likes_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["likes_count", 1], ["id", 13]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.852817"], ["updated_at", "2023-08-18 15:46:39.852817"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 14], ["created_at", "2023-08-18 15:46:39.853953"], ["updated_at", "2023-08-18 15:46:39.853953"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 14]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 14]]
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("author_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 14], ["post_id", 14], ["created_at", "2023-08-18 15:46:39.856387"], ["updated_at", "2023-08-18 15:46:39.856387"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "likes_count" = COALESCE("likes_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["likes_count", 1], ["id", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.859916"], ["updated_at", "2023-08-18 15:46:39.859916"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 15], ["created_at", "2023-08-18 15:46:39.861134"], ["updated_at", "2023-08-18 15:46:39.861134"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 15]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 15]]
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("author_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 15], ["post_id", 15], ["created_at", "2023-08-18 15:46:39.863563"], ["updated_at", "2023-08-18 15:46:39.863563"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "likes_count" = COALESCE("likes_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["likes_count", 1], ["id", 15]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("author_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 15], ["post_id", 15], ["created_at", "2023-08-18 15:46:39.865242"], ["updated_at", "2023-08-18 15:46:39.865242"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "likes_count" = COALESCE("likes_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["likes_count", 1], ["id", 15]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.868373"], ["updated_at", "2023-08-18 15:46:39.868373"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 16], ["created_at", "2023-08-18 15:46:39.869343"], ["updated_at", "2023-08-18 15:46:39.869343"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 16]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 16]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.873498"], ["updated_at", "2023-08-18 15:46:39.873498"], ["posts_count", 0]]
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 17], ["created_at", "2023-08-18 15:46:39.874287"], ["updated_at", "2023-08-18 15:46:39.874287"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 17]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 17]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.877681"], ["updated_at", "2023-08-18 15:46:39.877681"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 18], ["created_at", "2023-08-18 15:46:39.878583"], ["updated_at", "2023-08-18 15:46:39.878583"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 18]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 18]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.882742"], ["updated_at", "2023-08-18 15:46:39.882742"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 19], ["created_at", "2023-08-18 15:46:39.883550"], ["updated_at", "2023-08-18 15:46:39.883550"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 19]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 19]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test 2"], ["text", "Description test 2"], ["author_id", 19], ["created_at", "2023-08-18 15:46:39.885981"], ["updated_at", "2023-08-18 15:46:39.885981"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 19]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 19]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.890011"], ["updated_at", "2023-08-18 15:46:39.890011"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 20], ["created_at", "2023-08-18 15:46:39.890931"], ["updated_at", "2023-08-18 15:46:39.890931"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 20]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Comment"], ["post_id", 21], ["author_id", 20], ["created_at", "2023-08-18 15:46:39.893329"], ["updated_at", "2023-08-18 15:46:39.893552"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 21]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Comment"], ["post_id", 21], ["author_id", 20], ["created_at", "2023-08-17 15:46:39.895081"], ["updated_at", "2023-08-18 15:46:39.895415"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 21]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Comment"], ["post_id", 21], ["author_id", 20], ["created_at", "2023-08-16 15:46:39.896762"], ["updated_at", "2023-08-18 15:46:39.896984"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 21]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Comment"], ["post_id", 21], ["author_id", 20], ["created_at", "2023-08-15 15:46:39.898403"], ["updated_at", "2023-08-18 15:46:39.898654"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 21]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Comment"], ["post_id", 21], ["author_id", 20], ["created_at", "2023-08-14 15:46:39.900330"], ["updated_at", "2023-08-18 15:46:39.900597"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 21]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "post_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Comment"], ["post_id", 21], ["author_id", 20], ["created_at", "2023-08-13 15:46:39.902249"], ["updated_at", "2023-08-18 15:46:39.902487"]]
+  [1m[36mPost Update All (0.2ms)[0m  [1m[33mUPDATE "posts" SET "comments_count" = COALESCE("comments_count", 0) + $1 WHERE "posts"."id" = $2[0m  [["comments_count", 1], ["id", 21]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."id" ASC LIMIT $2[0m  [["post_id", 21], ["LIMIT", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 21], ["LIMIT", 5]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "bio", "photo", "created_at", "updated_at", "posts_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John"], ["bio", "Tester"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["created_at", "2023-08-18 15:46:39.908247"], ["updated_at", "2023-08-18 15:46:39.908247"], ["posts_count", 0]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "author_id", "created_at", "updated_at", "comments_count", "likes_count") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Post test"], ["text", "Description test"], ["author_id", 21], ["created_at", "2023-08-18 15:46:39.909146"], ["updated_at", "2023-08-18 15:46:39.909146"], ["comments_count", 0], ["likes_count", 0]]
+  [1m[36mUser Update All (0.2ms)[0m  [1m[33mUPDATE "users" SET "posts_count" = COALESCE("posts_count", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_count", 1], ["id", 21]]
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 21]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
