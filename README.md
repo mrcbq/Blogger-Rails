@@ -53,10 +53,10 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
-Blogger Rails is console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games. Everything will be based on the UML class diagram presented below. The data will be stored in JSON files.
-Created using Ruby!
+Blogger Rails is The Blog app will be a classic example of a blog website. You will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-![catalog_of_my_things](https://github.com/microverseinc/curriculum-ruby/blob/main/group-capstone/images/catalog_of_my_things.png)
+The end result should follow the following data model (this is an Entity Relationship Diagram that you are already familiar with):
+![Blogger-Rails](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/images/blog_app_erd_v1_1.png)
 
 ### Setup <a name="setup"></a>
 
@@ -78,20 +78,20 @@ Clone the project using one of the options.
 
 Using SSH-key:
 ```
-git clone git@github.com:mrcbq/catalog-of-my-things.git
+git clone git@github.com:mrcbq/Blogger-Rails.git
 ```
 
 Using HTTPS:
 
 ```
-git clone https://github.com/mrcbq/catalog-of-my-things.git
+git clone https://github.com/mrcbq/Blogger-Rails.git
 ```
 You can also create the new directory just adding the name of it in the end of command. For example:
 
 ```
-git clone https://github.com/mrcbq/catalog-of-my-things.git catalog
+git clone https://github.com/mrcbq/Blogger-Rails.git catalog
 ```
-### Installation <a name="installation"></a>
+### Installation <a name="install"></a>
 
 To run this project locally, follow these steps:
 
@@ -112,7 +112,7 @@ bundle install
 2. To run the app, execute the following command:
 
 ```
-ruby main.rb
+rails server
 ```
 
 3.If you have future features like GUI or interactive mode, follow the specific instructions provided for those features in the app's documentation.
@@ -121,15 +121,7 @@ ruby main.rb
 
 To run the tests ensure you are in the directory containing the test files.
 
-1. Install RSpec:
-
-Once you have Ruby installed, you can use RubyGems (Ruby's package manager) to install RSpec. Open your terminal or command prompt and run the following command:
-
-```
-gem install rspec
-```
-
-2. Run the tests using the following command:
+1. Run the tests using the following command:
 
 ```
 rspec
@@ -139,7 +131,6 @@ rspec
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -151,15 +142,18 @@ rspec
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-More data
+- [ ] **Add Views**
+- [ ] **Add Forms**
+- [x] **Add tests**
+- [x] **Add validations**
+- [x] **Show users at index page**
+- [x] **Show information from database on every page**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -169,7 +163,6 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
@@ -177,7 +170,6 @@ If you like this project give it a star ⭐️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
@@ -185,7 +177,6 @@ If you like this project give it a star ⭐️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 

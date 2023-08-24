@@ -71,4 +71,6 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'rails-controller-testing'
+
 gem 'rspec-rails', '~> 6.0', groups: %i[development test]
