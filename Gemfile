@@ -72,3 +72,4 @@ group :test do
 end
 
 gem 'rspec-rails', '~> 6.0', groups: %i[development test]
+gem 'rails-controller-testing'
