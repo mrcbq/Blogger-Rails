@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
   @page_title = 'User Show Page'
   @user = User.find(params[:id])
+  @bio = @user.bio
   @posts = @user.posts
   end
 end
