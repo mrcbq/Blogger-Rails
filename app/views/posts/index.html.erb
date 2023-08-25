@@ -4,7 +4,7 @@
     <div class = "bio-box-container">
       <%= render "shared/post_box", post: post, user: @user%>
     </div>
-      <%= render "shared/comment_box", post: post, limit: 5 %>
+      <%= render "shared/comment_box", comments: post.recent_comments %>
   </div>
 <% end %>
 <a class = "btn-container" href="<%= url_for(action: 'index', controller: 'users') %>">

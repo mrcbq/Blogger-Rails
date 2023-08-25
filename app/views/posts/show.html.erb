@@ -11,7 +11,7 @@
   </div>
 
 </div>
-<%= render "shared/comment_box", post: @post, limit: @post.comments_count %>
+<%= render "shared/comment_box", comments: @post.recent_comments %>
 <%= @user.id%>
 <a class = "btn-container" href="<%= url_for(action: 'index', controller: 'users') %>">
   <button class = "back">Back</button>

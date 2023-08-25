@@ -1,7 +1,6 @@
-<% @comments = Comment.where(post_id: post.id) %>
 <div class = "comments-box-container">
   <div class = "comments-box">
-    <% @comments.limit(limit).each do |comment| %>
+    <% comments.each do |comment| %>
       <% user = User.find(comment.author_id) %>
       <p class = "comment-box"><%= user.name %>: <%= comment.text %></p>
     <% end %>
