@@ -2,7 +2,10 @@
   <div class = "post">
     <div class = "post-header">
       <p>Post #<%= @post.id%> by <%= @user.name%></p>
-      <p>Comments: <%= @post.comments_count %>, Likes: <%= @post.likes_count %></p>
+      <div class = "likes-corner">
+        <p>Comments: <%= @post.comments_count %>, Likes: <%= @post.likes_count %></p>
+          <%= button_to "Like", like_user_post_path(@user, @post), method: :post %>
+      </div>
     </div>
     <p class = "post-text">
     <br>
@@ -12,7 +15,15 @@
 
 </div>
 <%= render "shared/comment_box", comments: @post.recent_comments %>
-<%= @user.id%>
+
+<a class = "btn-container" href="<%= new_user_post_comment_path(@user, @post) %>">
+    <button class='new-comment-btn'>Create a new comment</button>
+</a>
+
+<a class = "btn-container" href="<%= user_posts_path(@user) %>">
+  <button class = "see-all-posts">⬅ Back</button>
+</a>
+
 <a class = "btn-container" href="<%= url_for(action: 'index', controller: 'users') %>">
-  <button class = "back">Back</button>
+  <button class = "back">Home</button>
 </a>
