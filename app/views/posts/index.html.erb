@@ -1,4 +1,5 @@
 <%= render "shared/user_box", user: @user %>
+
 <% @posts.each do |post| %>
   <a class = "post-box" href="<%= user_post_path(@user, post) %>">
     <div class = "bio-box-container">
@@ -7,6 +8,11 @@
       <%= render "shared/comment_box", comments: post.recent_comments %>
   </div>
 <% end %>
-<a class = "btn-container" href="<%= url_for(action: 'index', controller: 'users') %>">
-  <button class = "back">Back</button>
+
+<a class = "btn-container" href="<%= new_user_post_path(@user) %>">
+    <button class='new-post-btn'>Create a new post</button>
+</a>
+
+<a class = "btn-container" href="<%= user_path(@user) %>">
+  <button class = "back">⬅ Back</button>
 </a>
