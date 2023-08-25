@@ -1,4 +1,5 @@
- /* * This is a manifest file that'll be compiled into application.css, which will include all the files
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
  * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
@@ -10,5 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self */
- @import 'custom_styles';
+ *= require_self
+ */
+@import url('custom_styles');

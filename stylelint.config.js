@@ -1,11 +1,11 @@
-{
-  "extends": ["stylelint-config-standard"],
-  "plugins": ["stylelint-scss", "stylelint-csstree-validator"],
-  "rules": {
+module.exports = {
+  extends: ["stylelint-config-standard"],
+  plugins: ["stylelint-scss", "stylelint-csstree-validator"],
+  rules: {
     "at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": [
+        ignoreAtRules: [
           "tailwind",
           "apply",
           "variants",
@@ -17,7 +17,7 @@
     "scss/at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": [
+        ignoreAtRules: [
           "tailwind",
           "apply",
           "variants",
@@ -28,5 +28,5 @@
     ],
     "csstree/validator": true
   },
-  "ignoreFiles": ["build/**", "dist/**", "**/reset*.css", "**/bootstrap*.css"]
-}
+  ignoreFiles: ["build/**", "dist/**", "**/reset*.css", "**/bootstrap*.css"]
+};
