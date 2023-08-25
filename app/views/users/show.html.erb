@@ -6,7 +6,7 @@
     <p><%=@user.bio%></p>
   </div>
 </div>
-<% @posts.limit(3).each do |post| %>
+<% @user.recent_posts.each do |post| %>
   <a class = "bio-box-container" href="<%= user_post_path(@user, post) %>">
     <%= render "shared/post_box", post: post %>
   </a>
