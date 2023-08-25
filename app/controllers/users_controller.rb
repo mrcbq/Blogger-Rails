@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
-  def index; end
+  def index
+    @page_title = 'User Index Page'
+    @users = User.all
+  end
 
-  def show; end
+  def show
+    @page_title = 'User Show Page'
+    @user = User.find(params[:id])
+    @posts = @user.posts
+  end
 end

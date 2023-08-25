@@ -1,1 +1,5 @@
-<h1>Here is a list of all users</h1>
+<ul id="users">
+  <% @users.each do |user| %>
+    <%= render "shared/user_box", user: user %>
+  <% end %>
+</ul>

@@ -1,1 +1,18 @@
-<h1>Here is the description and comments of a given post</h1>
+<div class= "post-container">
+  <div class = "post">
+    <div class = "post-header">
+      <p>Post #<%= @post.id%> by <%= @user.name%></p>
+      <p>Comments: <%= @post.comments_count %>, Likes: <%= @post.likes_count %></p>
+    </div>
+    <p class = "post-text">
+    <br>
+    <%= @post.text%>
+    </p>
+  </div>
+
+</div>
+<%= render "shared/comment_box", comments: @post.recent_comments %>
+<%= @user.id%>
+<a class = "btn-container" href="<%= url_for(action: 'index', controller: 'users') %>">
+  <button class = "back">Back</button>
+</a>
