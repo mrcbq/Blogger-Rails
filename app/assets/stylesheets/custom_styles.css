@@ -10,7 +10,7 @@
 }
 
 .user-image {
-  width: 100%; /* Fill the container width */
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -90,8 +90,32 @@ a:active {
   text-decoration: none;
 }
 
-/* Apply these styles to <a> elements when clicked */
 a:focus {
-  color: blue; /* Set text color to black on click */
-  text-decoration: none; /* Remove underline on click */
+  color: blue;
+  text-decoration: none;
+}
+
+#back-btn {
+  margin: 15px;
+}
+
+#form-title,
+.field {
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.field {
+  width: 70%;
+}
+
+.likes-corner {
+  display: flex;
+  gap: 10px;
 }

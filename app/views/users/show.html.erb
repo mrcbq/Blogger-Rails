@@ -14,3 +14,9 @@
 <a class = "btn-container" href="<%= user_posts_path(@user) %>">
   <button class = "see-all-posts">See all posts</button>
 </a>
+<a class = "btn-container" href="<%= new_user_post_path(current_user) %>">
+    <button class='new-post-btn'>Create a new post</button>
+</a>
+<a class = "btn-container" href="<%= users_path %>">
+  <button class = "back">⬅ Back</button>
+</a>
