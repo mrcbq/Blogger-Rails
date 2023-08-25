@@ -1,1 +1,12 @@
-<h1>Here is a list of posts for a given user</h1>
+<%= render "shared/user_box", user: @user %>
+<% @posts.each do |post| %>
+  <a class = "post-box" href="<%= user_post_path(@user, post) %>">
+    <div class = "bio-box-container">
+      <%= render "shared/post_box", post: post, user: @user%>
+    </div>
+      <%= render "shared/comment_box", post: post, limit: 5 %>
+  </div>
+<% end %>
+<a class = "btn-container" href="<%= url_for(action: 'index', controller: 'users') %>">
+  <button class = "back">Back</button>
+</a>
