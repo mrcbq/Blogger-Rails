@@ -1,7 +1,6 @@
 <div class = "comments-box-container">
   <div class = "comments-box">
     <% comments.each do |comment| %>
-      <%# <% user = User.find(comment.author_id) % > %>
       <p class = "comment-box"><%= comment.author.name %>: <%= comment.text %></p>
     <% end %>
   </div>
