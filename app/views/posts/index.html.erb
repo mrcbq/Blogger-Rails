@@ -1,11 +1,11 @@
 <%= render "shared/user_box", user: @user %>
 
-<% @posts.each do |post| %>
+<% @posts.includes(comments: :author).each do |post| %>
   <a class = "post-box" href="<%= user_post_path(@user, post) %>">
     <div class = "bio-box-container">
       <%= render "shared/post_box", post: post, user: @user%>
     </div>
-      <%= render "shared/comment_box", comments: post.recent_comments %>
+      <%= render "shared/comment_box", comments: post.comments.last(5) %>
   </div>
 <% end %>
 
