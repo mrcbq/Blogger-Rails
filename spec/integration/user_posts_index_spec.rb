@@ -24,7 +24,6 @@ RSpec.describe 'User Post Index Page', type: :feature do
 
   it 'displays a post\'s title' do
     visit user_posts_path(user)
-    save_and_open_page
     expect(page).to have_content("Post 1")
     expect(page).to have_content('Post 2')
     expect(page).to have_content('Post 3')
@@ -49,32 +48,29 @@ RSpec.describe 'User Post Index Page', type: :feature do
     visit user_posts_path(user)
     expect(page).to have_content('Comment 1')
     expect(page).to have_content('Comment 2')
-    # ... Repeat for other posts
   end
 
   it 'displays how many comments a post has' do
     post = user.posts.first
-    post.comments.create(user: user, body: 'Comment 1')
-    post.comments.create(user: user, body: 'Comment 2')
+    post.comments.create(author: user, text: 'Comment 1')
+    post.comments.create(author: user, text: 'Comment 2')
 
     visit user_posts_path(user)
     expect(page).to have_content('Comments: 2')
-    # ... Repeat for other posts
   end
 
   it 'displays how many likes a post has' do
     post = user.posts.first
-    post.likes.create(user: user)
+    post.likes.create(author: user)
 
     visit user_posts_path(user)
     expect(page).to have_content('Likes: 1')
-    # ... Repeat for other posts
   end
 
   it 'displays a section for pagination if there are more posts than fit on the view' do
-    # Assuming 5 posts are created, and you want to display 3 per page
     visit user_posts_path(user)
-    expect(page).to have_css('.pagination')
+    save_and_open_page
+    expect(page).to have_css('.btn-container')
   end
 
   it 'redirects to a post\'s show page upon clicking on a post' do
