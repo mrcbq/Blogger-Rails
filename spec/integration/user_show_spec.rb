@@ -47,7 +47,7 @@ RSpec.describe 'User Show Page', type: :feature do
 
   it 'redirects to the user\'s post index page upon clicking to see all posts' do
     visit user_path(user)
-    first('button', text:'See all posts').click
+    first('button', text: 'See all posts').click
     expect(page).to have_current_path(user_path(user))
   end
 end

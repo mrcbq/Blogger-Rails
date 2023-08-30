@@ -24,7 +24,7 @@ RSpec.describe 'User Post Index Page', type: :feature do
 
   it 'displays a post\'s title' do
     visit user_posts_path(user)
-    expect(page).to have_content("Post 1")
+    expect(page).to have_content('Post 1')
     expect(page).to have_content('Post 2')
     expect(page).to have_content('Post 3')
     expect(page).to have_content('Post 4')
@@ -37,7 +37,7 @@ RSpec.describe 'User Post Index Page', type: :feature do
     expect(page).to have_content('Text 2', count: 1)
     expect(page).to have_content('Text 3', count: 1)
     expect(page).to have_content('Text 4', count: 1)
-    expect(page).to have_content('Text 5', count: 1)    
+    expect(page).to have_content('Text 5', count: 1)
   end
 
   it 'displays the first comments on a post' do
@@ -62,7 +62,7 @@ RSpec.describe 'User Post Index Page', type: :feature do
   it 'displays how many likes a post has' do
     post = user.posts.first
     post.likes.create(author: user)
-    
+
     visit user_posts_path(user)
     expect(page).to have_content('Likes: 1')
   end
