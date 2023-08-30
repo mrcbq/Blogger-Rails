@@ -1,7 +1,7 @@
 require './spec/rails_helper'
 
 RSpec.describe PostsController, type: :request do
-  let!(:user) { User.create!( name: 'John', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Tester') }
+  let!(:user) { User.create!(name: 'John', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Tester') }
   let!(:post) { Post.create!(author: user, title: 'Post test', text: 'Description test') }
 
   describe 'GET #show' do
