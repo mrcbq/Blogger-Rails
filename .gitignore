@@ -57,5 +57,6 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 #Ignore log folder
 /log/
+/log/*
 log/
 log/test.log
