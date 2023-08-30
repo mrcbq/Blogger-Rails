@@ -1,5 +1,5 @@
 <div class = "bio-box">
-  <p>Post #<%= post.id %></p>
+  <p><%= post.title %></p>
   <br>
   <p><%=  post.text.truncate_words(25) %>...</p>
   <p class = "counters">Comments: <%= post.comments_count %>, Likes: <%= post.likes_count %></p>
