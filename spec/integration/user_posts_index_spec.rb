@@ -62,6 +62,7 @@ RSpec.describe 'User Post Index Page', type: :feature do
   it 'displays how many likes a post has' do
     post = user.posts.first
     post.likes.create(author: user)
+    save_and_open_page
 
     visit user_posts_path(user)
     expect(page).to have_content('Likes: 1')
@@ -69,7 +70,6 @@ RSpec.describe 'User Post Index Page', type: :feature do
 
   it 'displays a section for pagination if there are more posts than fit on the view' do
     visit user_posts_path(user)
-    save_and_open_page
     expect(page).to have_css('.btn-container')
   end
 
