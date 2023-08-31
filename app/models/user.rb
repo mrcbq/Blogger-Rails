@@ -12,12 +12,17 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: :author_id
   has_many :like, foreign_key: :author_id
 
+  before_create :set_default_photo
   before_validation :set_default_posts_count
   validates :name, presence: true
   validates :posts_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def set_default_posts_count
     self.posts_count ||= 0
+  end
+
+  def set_default_photo
+    self.photo ||= "https://randomuser.me/api/portraits/men/#{rand(1..100)}.jpg"
   end
 
   def recent_posts
