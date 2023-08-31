@@ -15,19 +15,21 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = @user.posts.build
+    @post = current_user.posts.build
+    @user = current_user
   end
 
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to user_post_path(@user, @post), notice: 'Post was successfully created.'
+      redirect_to user_post_path(current_user, @post), notice: 'Post was successfully created.'
     else
       render :new
     end
   end
 
   def like
+    @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
     @like = @post.likes.create(author: current_user)
     @like.save
