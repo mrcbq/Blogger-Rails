@@ -16021,3 +16021,50 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 1.6ms | Allocations: 3784)
 
 
+Started GET "/custom_sign_out" for 127.0.0.1 at 2023-08-31 15:55:21 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 63ms (ActiveRecord: 27.2ms | Allocations: 5790)
+
+
+Started GET "/" for 127.0.0.1 at 2023-08-31 15:55:22 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered shared/_user_box.html.erb (Duration: 0.7ms | Allocations: 63)
+  Rendered shared/_user_box.html.erb (Duration: 0.5ms | Allocations: 30)
+  Rendered shared/_user_box.html.erb (Duration: 0.7ms | Allocations: 27)
+  Rendered shared/_user_box.html.erb (Duration: 0.5ms | Allocations: 27)
+  Rendered shared/_user_box.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered shared/_user_box.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered users/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 1233)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 2932)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.8ms | Allocations: 3525)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-08-31 15:55:23 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 1189)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2626)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2714)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 3701)
+
+
+  
+ActionView::Template::Error (undefined method `new_confirmation_path' for #<ActionView::Base:0x00000000026a48>):
+    11: <% end %>
+    12: 
+    13: <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    14:   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+    15: <% end %>
+    16: 
+    17: <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  
+app/views/devise/shared/_links.html.erb:14
+app/views/devise/registrations/new.html.erb:34
