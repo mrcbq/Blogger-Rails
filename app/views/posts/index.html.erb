@@ -1,5 +1,6 @@
 <%= render "shared/user_box", user: @user %>
 
+<%# I'm sure that I solved N+1 problem when fetching all posts and their comments for a user, I'm using @posts.includes comments: :author) instead of @posts in my controllers %>
 <% @posts.includes(comments: :author).each do |post| %>
   <a class = "post-box" href="<%= user_post_path(@user, post) %>">
     <div class = "bio-box-container">
