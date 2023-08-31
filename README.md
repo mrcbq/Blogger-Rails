@@ -140,6 +140,15 @@ rspec
 - Twitter: [@mrcbq](https://twitter.com/mrcbq)
 - LinkedIn: [mrcbq](https://www.linkedin.com/in/mrcbq/)
 
+  
+## 👥 Authors <a name="authors"></a>
+
+👤 **Abraham Christopher**
+
+- GitHub: [@mrcbq](https://github.com/cabraham1)
+- Twitter: [@mrcbq](https://twitter.com/_cabraham1)
+- LinkedIn: [mrcbq](https://www.linkedin.com/in/abrahamchristopher/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
