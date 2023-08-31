@@ -75,3 +75,5 @@ end
 gem 'rails-controller-testing'
 
 gem 'rspec-rails', '~> 6.0', groups: %i[development test]
+
+gem "devise", "~> 4.9"
