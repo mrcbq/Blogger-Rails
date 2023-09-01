@@ -135,7 +135,6 @@ h3 {
 }
 
 /* stylelint-disable selector-class-pattern */
-
 .edit_user,
 .new_user,
 .actions,
@@ -155,4 +154,3 @@ form + * {
   margin: 15px;
   gap: 0.5rem;
 }
-
