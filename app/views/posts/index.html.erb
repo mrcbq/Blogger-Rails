@@ -10,9 +10,11 @@
   </div>
 <% end %>
 
+<% if current_user == @user %>
 <a class = "btn-container" href="<%= new_user_post_path(@user) %>">
     <button class='new-post-btn'>Create a new post</button>
 </a>
+<% end %>
 
 <a class = "btn-container" href="<%= user_path(@user) %>">
   <button class = "back">⬅ Back</button>
