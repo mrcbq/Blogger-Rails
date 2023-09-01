@@ -133,7 +133,7 @@ h2, h3 {
   text-align: center;
 }
 
-
+/* stylelint-disable selector-class-pattern */
 .edit_user, .new_user, .actions, form + * {
   display: flex;
   flex-direction: column;
