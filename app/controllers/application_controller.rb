@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def add_like
     @like = Like.new(user: @user, post: @post)
-    return unless @like.save
+    nil unless @like.save
   end
 
   helper_method :current_user
